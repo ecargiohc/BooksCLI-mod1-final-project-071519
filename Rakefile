@@ -1,6 +1,8 @@
 require_relative './config/environment'
 require 'sinatra/activerecord/rake'
 
+#interacts with CLI.file - method called self.run
+
 desc 'runs the CLI'
 task :run do
   CLI.run
@@ -11,8 +13,20 @@ task :console do
   Pry.start
 end
 
-desc 'See list of books from Google'
-task :Google_books do 
-  x = 1
-  GoogleBooks.search(x)
-end
+#enteracts with the CLI.file - method called self.author
+desc 'runs an author'
+task :author do 
+  CLI.author
+end 
+
+desc 'runs option for a genre'
+task :genre do 
+  CLI.genre
+end 
+
+# desc 'google books'
+# task :Google_books do 
+#   Google_books.run
+# end
+
+
