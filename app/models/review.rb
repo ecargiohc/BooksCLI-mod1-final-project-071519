@@ -2,7 +2,7 @@ class Review < ActiveRecord::Base
     belongs_to :user
     belongs_to :book
 
-#lists content of a given book
+    #lists content of a given book
     def content(book)
         self.all.map do |r|
             r.content 
@@ -20,8 +20,4 @@ class Review < ActiveRecord::Base
             r.book_id
         end
     end
-
-
-
-
 end
