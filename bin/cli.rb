@@ -9,7 +9,8 @@ class CLI
     def self.author
         puts "Enter author name: "
         author = STDIN.gets.chomp
-        GoogleBooks.search(query)
+        GoogleBooks.get_books_from_internet(author)
+    
     end
 
     def self.genre
@@ -18,7 +19,4 @@ class CLI
         GoogleBooks.search(query)
 
     end 
-    
-
-  
 end
