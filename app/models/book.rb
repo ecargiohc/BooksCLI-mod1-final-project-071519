@@ -1,4 +1,6 @@
 class Book < ActiveRecord::Base
+    has_many :reviews
+
     #queries here
     def self.title
         self.all.map do |b|
