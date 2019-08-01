@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 20190731172335) do
+
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
@@ -27,4 +28,5 @@ ActiveRecord::Schema.define(version: 20190731172335) do
     t.string "name"
     t.string "favorites"
   end
+
 end
