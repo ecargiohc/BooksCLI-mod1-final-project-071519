@@ -19,9 +19,15 @@ task :author do
   CLI.author
 end 
 
+#enteracts with the CLI.file - method called self.genre
 desc 'runs option for a genre'
 task :genre do 
   CLI.genre
+end 
+
+desc 'run the main menu'
+task :menu do 
+  CLI.menu_prompt
 end 
 
 # desc 'google books'
