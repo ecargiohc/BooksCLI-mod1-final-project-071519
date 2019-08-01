@@ -1,38 +1,23 @@
-URL = "https://www.googleapis.com/books/v1/volumes?q=search+terms"
+URL = "https://www.googleapis.com/books/v1/volumes?q="
 
 class GoogleBooks
+    def self.search(query)
+        puts "searching for: #{query}"
+        response = RestClient.get(URL + query)
+        json = JSON.parse(response.body)
 
-    def self.search_by_menu_prompt
-        puts "How would you like to search?"
-    end 
-
-# binding.pry
-
-    def self.main_menue
-        puts "Search by another option?"
-    end 
-
-    def self.search_by_title(title)
-        puts "Searching for title #{title}..."
+        #if user input is title, output "description" along with author info, "averageRating"
+        #"pageCount", and "categories"(genre)
+        #if user input is author, output  list of this #{author}'s books and each of the book's avg. rating
+        #if user input is a "categories" key word(s), output list of (book)titles that 
+        #have that word in its "categories"(genre) hash
+        
+        books = json["items"]
+        books.map do |book|
+            #this object has access to title, author, categories(genre), averageRating, description
+            #notify user; if 'nil', means 'N/A'
+            book["volumeInfo"]
+        end
     end
-
-    def self.search_by_author(author)
-        puts "Searching for an author #{author}..."
-    end 
-
-    def self.search_by_genre(genre)
-        puts "Finding your genre #{genre}..."
-    end 
-    
-    def self.get_books_from_internet
-        api_link = RestClient.get("https://www.googleapis.com/books/v1/volumes?q=#{search_term}")
-        books = JSON.parse(api_link)
-    end 
-
-        # valid_books
-        # valid_books = books[] 
-
-
-
-
-end 
+end
+   
