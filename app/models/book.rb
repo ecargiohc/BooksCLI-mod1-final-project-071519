@@ -1,25 +1,6 @@
 class Book < ActiveRecord::Base
     has_many :reviews
-
-    #queries here
-    def self.title
-        self.all.map do |b|
-            b.title
-        end
-    end
-
-    def self.author
-        self.all.map do |b|
-            b.author
-        end
-    end
-
-    def self.genre
-        self.all.map do |b|
-            b.genre 
-        end
-    end
-
+    
     #instance of a book review; reviewS of a specific book
     def book_review
         Review.all.select do |r|
@@ -32,4 +13,9 @@ class Book < ActiveRecord::Base
         Review.all.select {|r|
             r.book == self}.count
     end
+
+    #List a book with the most user reviews
+
+
+     
 end
