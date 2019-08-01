@@ -8,4 +8,4 @@ pretty = Book.create(title:"Me Talk Pretty One Day", author: "Sedaris", genre: "
 
 tom = User.create(name: "Tom", favorites:"fantasy, fiction")
 
-Review.create(user: tom, book: infinite, content: "heavy")
+Review.create(user: tom, book: infinite, review: "heavy")
