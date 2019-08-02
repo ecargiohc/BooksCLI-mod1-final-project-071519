@@ -22,7 +22,7 @@ class CLI
             puts "6. Update your review(s)"
             puts "7. Delete your review(s)"
             puts "8. See your saved list of books to review"
-            puts "9. Just get me out of here"
+            puts "9. Exit"
         
             user_choice = STDIN.gets.chomp
             if user_choice == "1" #DONE
@@ -72,7 +72,7 @@ class CLI
             puts "There are no books saved. :("
         end
         Book.all.each do |book|
-            puts "#{book.title} by #{book.author}" #why doesn't book author print?
+            puts "#{book.title} by #{book.author}" 
         end
     end
 
@@ -81,8 +81,6 @@ class CLI
         Review.all.filter do |review|
             if review.user.name == user.name
                  puts "Your thoughts on '#{review.book.title}': '#{review.review}'"
-            # else 
-            #     puts "You don't have any reviews on this book yet :("
             end
         end
     end
@@ -101,7 +99,7 @@ class CLI
     end
 
     def self.see_book_description
-        puts "Enter the synopsis of the book you'd like to see:"
+        puts "Enter the title of the book you'd like to read about:"
         user_input = STDIN.gets.chomp
         results = GoogleBooks.search(user_input)
         results.each do |result|
